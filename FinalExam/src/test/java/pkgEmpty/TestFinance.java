@@ -1,9 +1,7 @@
 package pkgEmpty;
 
-import static org.junit.Assert.*;
-
+import org.apache.poi.ss.formula.functions.FinanceLib;
 import org.junit.Test;
-import org.apache.poi.ss.formula.functions.*;
 public class TestFinance {
 
 	
@@ -16,12 +14,13 @@ public class TestFinance {
 		double rAnnaulReturnRetired = 0.02 / 12;
 		double dRequiredIncome = 10000;
 		double dMonthlySSI = 2642;
+		System.out.println("PV:"+rAnnaulReturnRetired+","+dMonthsRetired+","+(dRequiredIncome - dMonthlySSI)+","+",0,false");
 		double pv = FinanceLib.pv(rAnnaulReturnRetired, dMonthsRetired, dRequiredIncome - dMonthlySSI, 0, false);
-		
+		System.out.println("PMT:"+rAnnualReturnWorking+","+dMonthsToWork+","+",0,"+pv+",false");
 		double pmt = FinanceLib.pmt(rAnnualReturnWorking, dMonthsToWork, 0, pv, false);
 		
-		System.out.println(pv);
-		System.out.println(pmt);
+		System.out.println("PV="+pv);
+		System.out.println("PMT="+pmt);
 	}
 	
 	
@@ -35,7 +34,7 @@ public class TestFinance {
 		boolean t = false;
 		double pv = FinanceLib.pv(r, n, y, f, t);
 		
-		//System.out.println(pv);
+		System.out.println(pv);
 		
 	}
 	
@@ -50,7 +49,7 @@ public class TestFinance {
 		
 		double d = FinanceLib.pmt(r, n, p, f, t);
 		
-		//System.out.println(d);
+		System.out.println(d);
 		
 		
 		
